@@ -1,2 +1,22 @@
-
-/* write your parent styles in here for your App.js */
+h1{
+    font-size: 3rem;
+    padding-bottom: 2rem;
+    color:azure;
+    border:1px solid azure;
+    margin:2rem;
+}
+h3{
+    padding-bottom: 1.5rem;
+    padding-top: 1.5rem; 
+    color:azure;
+    
+}
+p{
+    color:azure;
+}
+.content {
+    font-size: 1.5rem;  
+    border:1px solid azure;
+    border-radius: 1%;
+    margin:2rem;
+}

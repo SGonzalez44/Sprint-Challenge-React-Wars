@@ -1,15 +1,24 @@
 import React from 'react';
+import {Card} from 'semantic-ui-react';
+import './StarWars.scss';
 
-function StarWars(props) {
-    return (
-        <div>
-        <h1>Name:{props.title}</h1>
-        <h3>Walker Stats</h3>
-        <p>Gender:{props.gender}</p>
-        <p>Height:{props.height}</p>
-        <p>Hair Color:{props.hair_color}</p>
-        <p>Skin Color:{props.skin_color}</p>
-        </div>
+
+const StarWars = (props) => {
+    console.log(props);
+    return(
+        <Card>
+            <Card.Content>
+                <h3>Name:{props.name}</h3>
+                <p>Age:{props.age}</p>
+                <p>Height:{props.height}</p>
+                <p>Mass:{props.mass}</p>
+                <p>Hair Color:{props.hair}</p>
+                <p>Eye Color:{props.eye}</p>
+                <p>Gender:{props.gender}</p>
+               
+            </Card.Content>
+        </Card>
+
     );
 }
 

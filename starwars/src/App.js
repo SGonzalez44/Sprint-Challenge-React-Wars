@@ -1,32 +1,44 @@
 import React, {useState, useEffect} from 'react';
-import axios from 'axios';
-import StarWars from './components/StarWars.js';
+import StarWars from "./components/StarWars"
 import './App.css';
+import axios from 'axios';
 
-function App() { 
-  const[data, setData] = useState({});
-  useEffect(() => {
-  axios.get("https://swapi.co/api/people/1/")
-  .then(response => {
-    console.log(response.data);
-    setData(response.data);
-  });
-  }, []);
-return (
+function App() {
+
+  const [state, setState] = useState([]);
   
-    <StarWars title={data.name}
-               gender={data.gender}
-               height={data.height}
-               mass={data.mass}
-               hair_color={data.hair_color}
-               skin_color={data.skin_color}
-                />
- 
-
-  )
-}
-
-export default App;
+  useEffect(() => {
+    axios.get("https://swapi.co/api/people/")
+    .then(response => {
+      setState(response.data.results);
+    })
+    .catch(err =>
+      console.log(err))
+  }, [])
+  
+    return (
+      <div className="center">
+        <h1>React Wars</h1>
+        <div>
+        {state.map((data) =>{
+        return <StarWars key={data.name} 
+                        name={data.name} 
+                        age={data.birth_year}
+                        height={data.height}
+                        mass={data.mass}
+                        hairColor={data.hair_color}   
+                        eyeColor={data.eye_color} 
+                        gender={data.gender} 
+                       
+                 />
+          })
+          }
+          </div>
+      </div>
+    );
+  }
+  
+  export default App;
   // Try to think through what state you'll need for this app before starting. Then build out
   // the state properties here.
 
